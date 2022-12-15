@@ -114,7 +114,7 @@ if options == 'Webcam':
     cam_options = st.sidebar.selectbox('Webcam Channel',
                                        ('Select Channel', '0', '1', '2', '3'))
     # Model
-    model = custom(path_or_model=path_model_file)
+    model = load_model(path_model_file)
 
     if len(cam_options) != 0:
         if not cam_options == 'Select Channel':
