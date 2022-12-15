@@ -56,6 +56,10 @@ for i in range(len(class_labels)):
     color = color_picker_fn(classname, i)
     color_pick_list.append(color)
 
+@st.cache
+def load_model(path_model_file):
+	return custom(path_or_model=path_model_file)
+
 # Image
 if options == 'Image':
     upload_img_file = st.sidebar.file_uploader(
@@ -69,7 +73,7 @@ if options == 'Image':
 
         if pred:
 
-            model = custom(path_or_model=path_model_file)
+            model = load_model(path_model_file)
             
             bbox_list = []
             current_no_class = []
